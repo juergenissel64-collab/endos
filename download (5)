@@ -1,25 +1,21 @@
-# ENDOS FAQ
+# ENDOS Sprint 2 Release V1.2 – Mission Control
 
-## What is ENDOS?
+## Status
 
-ENDOS stands for Enterprise Navigation & Decision Operating System. It is a platform concept for better executive navigation under uncertainty.
+Prepared for GitHub Pages deployment.
 
-## Is ENDOS a dashboard?
+## Neue Inhalte
 
-No. Dashboards are one possible interface. ENDOS is intended as a broader decision and navigation system that can include dashboards, knowledge objects, methods, validation logic and executive workflows.
+- Neue Seite: `pages/mission-control.html`
+- Neue Dokumentation: `docs/MISSION_CONTROL.md`
+- Startseite aktualisiert auf Release V1.2
+- Navigation um Mission Control erweitert
+- Mission-Control-Karten für Today's Mission, Top Decisions, Risk Watch, Opportunity Watch, Gap Radar und Next Actions
 
-## What is the current maturity level?
+## Zweck
 
-Foundation stage. The repository, GitHub Pages site and documentation baseline are established. Functional modules will be added sprint by sprint.
+Sprint 2 macht ENDOS sichtbar als operative Executive-Plattform und nicht nur als Landingpage oder Dokumentationsarchiv.
 
-## What is the next implementation step?
+## Nächster Sprint
 
-Sprint 2: Executive Mission Control.
-
-## What makes ENDOS different?
-
-ENDOS focuses on adaptive relevance, executive attention, uncertainty, evidence, method orchestration and enterprise navigation rather than static reporting alone.
-
-## Who is ENDOS for?
-
-Potential users include executives, controllers, enterprise architects, consultants, strategy teams, transformation leaders, risk managers and pilot customers in complex organizations.
+Sprint 3: Architecture Explorer.

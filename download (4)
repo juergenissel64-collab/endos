@@ -1,34 +1,25 @@
-# ENDOS Vision
+# ENDOS FAQ
 
-ENDOS aims to become an Enterprise Navigation & Decision Operating System that helps organizations see earlier, decide better and learn faster.
+## What is ENDOS?
 
-## Strategic Ambition
+ENDOS stands for Enterprise Navigation & Decision Operating System. It is a platform concept for better executive navigation under uncertainty.
 
-Traditional dashboards often show what has already happened. ENDOS should help executives understand:
+## Is ENDOS a dashboard?
 
-- what matters now,
-- what is changing,
-- what is uncertain,
-- what may become critical,
-- where attention is misallocated,
-- and which actions should be considered next.
+No. Dashboards are one possible interface. ENDOS is intended as a broader decision and navigation system that can include dashboards, knowledge objects, methods, validation logic and executive workflows.
 
-## Long-Term Platform Vision
+## What is the current maturity level?
 
-ENDOS will integrate:
+Foundation stage. The repository, GitHub Pages site and documentation baseline are established. Functional modules will be added sprint by sprint.
 
-- Executive Mission Control
-- Adaptive Enterprise Steering
-- Decision Intelligence
-- Evidence and Uncertainty Management
-- Enterprise Knowledge Graph
-- External Signal Intelligence
-- Validation and Replay Logic
-- Patent and Research Intelligence
-- Pilot and ROI Evidence Management
+## What is the next implementation step?
 
-## Positioning
+Sprint 2: Executive Mission Control.
 
-ENDOS is positioned between business intelligence, enterprise architecture, decision intelligence, strategy execution, risk intelligence and knowledge management.
+## What makes ENDOS different?
 
-It is intended to augment—not replace—ERP, BI, dashboards and consulting workflows.
+ENDOS focuses on adaptive relevance, executive attention, uncertainty, evidence, method orchestration and enterprise navigation rather than static reporting alone.
+
+## Who is ENDOS for?
+
+Potential users include executives, controllers, enterprise architects, consultants, strategy teams, transformation leaders, risk managers and pilot customers in complex organizations.

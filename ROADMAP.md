@@ -111,3 +111,13 @@ h3 { font-size: 1.22rem; }
   .hero { padding: 32px 24px; border-radius: 22px; }
   .footer { flex-direction: column; }
 }
+
+
+/* Sprint 2 – Mission Control */
+.mission-hero h1 { max-width: 1060px; }
+.mission-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 18px; margin: 28px 0; }
+.mission-card { border: 1px solid rgba(116,185,255,.22); border-radius: 22px; background: rgba(9,29,55,.92); padding: 26px; min-height: 220px; }
+.mission-card.highlight { grid-row: span 2; background: linear-gradient(145deg, rgba(17,54,100,.96), rgba(7,23,44,.94)); }
+.mission-card ol, .mission-card ul { color: var(--muted); line-height: 1.7; padding-left: 22px; }
+.mission-card p { color: var(--muted); line-height: 1.65; }
+@media (max-width: 900px) { .mission-grid { grid-template-columns: 1fr; } .mission-card.highlight { grid-row: auto; } }

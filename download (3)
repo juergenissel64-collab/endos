@@ -1,74 +1,34 @@
-# ENDOS Architecture Baseline
+# ENDOS Vision
 
-## Purpose
+ENDOS aims to become an Enterprise Navigation & Decision Operating System that helps organizations see earlier, decide better and learn faster.
 
-ENDOS is designed as an Enterprise Navigation & Decision Operating System. It is not only a dashboard, but a layered system for understanding, prioritizing and acting under uncertainty.
+## Strategic Ambition
 
-## Core Layers
+Traditional dashboards often show what has already happened. ENDOS should help executives understand:
 
-### 1. Knowledge Layer
+- what matters now,
+- what is changing,
+- what is uncertain,
+- what may become critical,
+- where attention is misallocated,
+- and which actions should be considered next.
 
-Stores and structures:
+## Long-Term Platform Vision
 
-- Knowledge Objects
-- Enterprise signals
-- Evidence fragments
-- Research notes
-- Case observations
-- Assumptions and gaps
+ENDOS will integrate:
 
-### 2. Methods Layer
+- Executive Mission Control
+- Adaptive Enterprise Steering
+- Decision Intelligence
+- Evidence and Uncertainty Management
+- Enterprise Knowledge Graph
+- External Signal Intelligence
+- Validation and Replay Logic
+- Patent and Research Intelligence
+- Pilot and ROI Evidence Management
 
-Contains reusable analytical and decision methods, for example:
+## Positioning
 
-- Bayesian reasoning
-- Scenario analysis
-- Game theory
-- Operations research
-- TRIZ
-- Monte Carlo reasoning
-- Root cause analysis
-- Gap analysis
+ENDOS is positioned between business intelligence, enterprise architecture, decision intelligence, strategy execution, risk intelligence and knowledge management.
 
-### 3. Orchestration Layer
-
-Selects and combines methods according to context, uncertainty, evidence level, decision type and available data.
-
-### 4. Execution Layer
-
-Transforms insights into:
-
-- Executive priorities
-- Recommended actions
-- Sprint tasks
-- Pilot interventions
-- Decision briefings
-
-### 5. Validation Layer
-
-Tests whether ENDOS logic produces useful signals and decision support.
-
-Key mechanisms:
-
-- Historical Replay Validation
-- Pilot evidence
-- Case comparison
-- Assumption tracking
-- Evidence scoring
-
-### 6. Learning Layer
-
-Uses feedback and observed outcomes to improve knowledge objects, methods, thresholds and navigation logic.
-
-## Design Principles
-
-- Attention precedes decision quality.
-- Relevance must be adaptive, not static.
-- Evidence and uncertainty must be explicit.
-- Gaps are first-class information objects.
-- Methods should be reusable and orchestrated.
-- Enterprise navigation requires internal and external signals.
-
-## Current Status
-
-Foundation Release V1.1 establishes the repository and public platform structure. Functional engines will be added in subsequent sprints.
+It is intended to augment—not replace—ERP, BI, dashboards and consulting workflows.

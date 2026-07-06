@@ -1,38 +1,79 @@
-# Release Notes – ENDOS Foundation Release V1.1
+# ENDOS Roadmap
 
-## Release Name
+## Sprint 1 – Foundation
 
-ENDOS Foundation Release V1.1
+Goal: Establish ENDOS as a stable public repository and GitHub Pages platform.
 
-## Release Objective
+Deliverables:
 
-Transform the initial GitHub Pages deployment into a professional project foundation with stronger documentation, improved landing page and a clearer sprint roadmap.
+- GitHub Pages website
+- Professional repository structure
+- README and documentation baseline
+- Release notes and changelog
+- Initial architecture baseline
 
-## Included
+## Sprint 2 – Executive Mission Control
 
-- Modernized `index.html`
-- New stylesheet in `assets/css/style.css`
-- JavaScript placeholder in `assets/js/app.js`
-- Expanded `README.md`
-- New `CHANGELOG.md`
-- New `CONTRIBUTING.md`
-- New `CODE_OF_CONDUCT.md`
-- New `docs/ROADMAP.md`
-- New `docs/ARCHITECTURE.md`
-- New `docs/VISION.md`
-- New `docs/FAQ.md`
-- New repository, research, patent, pilot and release folders
+Goal: Turn the landing page into an operational executive workspace.
 
-## Strategic Meaning
+Planned modules:
 
-This release marks the transition from a simple web presence to a structured platform foundation. It prepares ENDOS for:
+- Today's Mission
+- Current Sprint
+- Top Priorities
+- Open Gaps
+- Decision Focus
+- Architecture Status
+- Research Watch
+- Pilot Readiness
 
-- Sprint-based development
-- Professional versioning
-- Partner and pilot communication
-- Architecture consolidation
-- Evidence and validation work
+## Sprint 3 – Architecture Explorer
 
-## Next Release
+Goal: Provide a structured, navigable view of ENDOS architecture.
 
-Sprint 2: Executive Mission Control.
+Planned modules:
+
+- Layer map
+- Engine map
+- Object model
+- Decision flow
+- Method orchestration view
+
+## Sprint 4 – Knowledge Repository Browser
+
+Goal: Make Knowledge Objects, Patent Objects and Architecture Decisions searchable and understandable.
+
+Planned modules:
+
+- Object cards
+- Category filters
+- Evidence status
+- Gap indicators
+- Object lifecycle
+
+## Sprint 5 – Validation Center
+
+Goal: Build evidence through historical replay and pilot cases.
+
+Candidate replay cases:
+
+- Nokia
+- Kodak
+- Leoni
+- Signa
+- Siemens Energy
+- Continental
+- ZF
+- Microsoft
+
+## Sprint 6 – Patent Intelligence
+
+Goal: Structure patent families, claims, novelty areas and search evidence.
+
+## Sprint 7 – Pilot Evidence Management
+
+Goal: Prepare structured pilots, quick findings and ROI evidence.
+
+## Sprint 8 – Enterprise Knowledge Graph
+
+Goal: Connect objects, signals, methods, decisions, interventions and outcomes.
