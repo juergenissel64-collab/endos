@@ -1,0 +1,25 @@
+# ENDOS FAQ
+
+## What is ENDOS?
+
+ENDOS stands for Enterprise Navigation & Decision Operating System. It is a platform concept for better executive navigation under uncertainty.
+
+## Is ENDOS a dashboard?
+
+No. Dashboards are one possible interface. ENDOS is intended as a broader decision and navigation system that can include dashboards, knowledge objects, methods, validation logic and executive workflows.
+
+## What is the current maturity level?
+
+Foundation stage. The repository, GitHub Pages site and documentation baseline are established. Functional modules will be added sprint by sprint.
+
+## What is the next implementation step?
+
+Sprint 2: Executive Mission Control.
+
+## What makes ENDOS different?
+
+ENDOS focuses on adaptive relevance, executive attention, uncertainty, evidence, method orchestration and enterprise navigation rather than static reporting alone.
+
+## Who is ENDOS for?
+
+Potential users include executives, controllers, enterprise architects, consultants, strategy teams, transformation leaders, risk managers and pilot customers in complex organizations.

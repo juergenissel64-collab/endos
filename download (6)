@@ -1,0 +1,38 @@
+# Release Notes – ENDOS Foundation Release V1.1
+
+## Release Name
+
+ENDOS Foundation Release V1.1
+
+## Release Objective
+
+Transform the initial GitHub Pages deployment into a professional project foundation with stronger documentation, improved landing page and a clearer sprint roadmap.
+
+## Included
+
+- Modernized `index.html`
+- New stylesheet in `assets/css/style.css`
+- JavaScript placeholder in `assets/js/app.js`
+- Expanded `README.md`
+- New `CHANGELOG.md`
+- New `CONTRIBUTING.md`
+- New `CODE_OF_CONDUCT.md`
+- New `docs/ROADMAP.md`
+- New `docs/ARCHITECTURE.md`
+- New `docs/VISION.md`
+- New `docs/FAQ.md`
+- New repository, research, patent, pilot and release folders
+
+## Strategic Meaning
+
+This release marks the transition from a simple web presence to a structured platform foundation. It prepares ENDOS for:
+
+- Sprint-based development
+- Professional versioning
+- Partner and pilot communication
+- Architecture consolidation
+- Evidence and validation work
+
+## Next Release
+
+Sprint 2: Executive Mission Control.
