@@ -1,21 +1,79 @@
-# ENDOS Sprint 2 Release V1.2 – Mission Control
+# ENDOS Roadmap
 
-## Status
+## Sprint 1 – Foundation
 
-Prepared for GitHub Pages deployment.
+Goal: Establish ENDOS as a stable public repository and GitHub Pages platform.
 
-## Neue Inhalte
+Deliverables:
 
-- Neue Seite: `pages/mission-control.html`
-- Neue Dokumentation: `docs/MISSION_CONTROL.md`
-- Startseite aktualisiert auf Release V1.2
-- Navigation um Mission Control erweitert
-- Mission-Control-Karten für Today's Mission, Top Decisions, Risk Watch, Opportunity Watch, Gap Radar und Next Actions
+- GitHub Pages website
+- Professional repository structure
+- README and documentation baseline
+- Release notes and changelog
+- Initial architecture baseline
 
-## Zweck
+## Sprint 2 – Executive Mission Control
 
-Sprint 2 macht ENDOS sichtbar als operative Executive-Plattform und nicht nur als Landingpage oder Dokumentationsarchiv.
+Goal: Turn the landing page into an operational executive workspace.
 
-## Nächster Sprint
+Planned modules:
 
-Sprint 3: Architecture Explorer.
+- Today's Mission
+- Current Sprint
+- Top Priorities
+- Open Gaps
+- Decision Focus
+- Architecture Status
+- Research Watch
+- Pilot Readiness
+
+## Sprint 3 – Architecture Explorer
+
+Goal: Provide a structured, navigable view of ENDOS architecture.
+
+Planned modules:
+
+- Layer map
+- Engine map
+- Object model
+- Decision flow
+- Method orchestration view
+
+## Sprint 4 – Knowledge Repository Browser
+
+Goal: Make Knowledge Objects, Patent Objects and Architecture Decisions searchable and understandable.
+
+Planned modules:
+
+- Object cards
+- Category filters
+- Evidence status
+- Gap indicators
+- Object lifecycle
+
+## Sprint 5 – Validation Center
+
+Goal: Build evidence through historical replay and pilot cases.
+
+Candidate replay cases:
+
+- Nokia
+- Kodak
+- Leoni
+- Signa
+- Siemens Energy
+- Continental
+- ZF
+- Microsoft
+
+## Sprint 6 – Patent Intelligence
+
+Goal: Structure patent families, claims, novelty areas and search evidence.
+
+## Sprint 7 – Pilot Evidence Management
+
+Goal: Prepare structured pilots, quick findings and ROI evidence.
+
+## Sprint 8 – Enterprise Knowledge Graph
+
+Goal: Connect objects, signals, methods, decisions, interventions and outcomes.

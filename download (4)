@@ -1,25 +1,17 @@
-# ENDOS FAQ
+# Release Notes — ENDOS V1.5
 
-## What is ENDOS?
+## Sprint 5: Dynamic Knowledge Graph
 
-ENDOS stands for Enterprise Navigation & Decision Operating System. It is a platform concept for better executive navigation under uncertainty.
+This release introduces the first connected object view for ENDOS. It is intentionally lightweight and static, but it establishes the structural foundation for a future repository-driven enterprise knowledge graph.
 
-## Is ENDOS a dashboard?
+## Included
 
-No. Dashboards are one possible interface. ENDOS is intended as a broader decision and navigation system that can include dashboards, knowledge objects, methods, validation logic and executive workflows.
+- Knowledge Graph page
+- Graph JavaScript renderer
+- Static graph object data
+- Knowledge Graph documentation
+- Updated changelog and README
 
-## What is the current maturity level?
+## Next Sprint Candidate
 
-Foundation stage. The repository, GitHub Pages site and documentation baseline are established. Functional modules will be added sprint by sprint.
-
-## What is the next implementation step?
-
-Sprint 2: Executive Mission Control.
-
-## What makes ENDOS different?
-
-ENDOS focuses on adaptive relevance, executive attention, uncertainty, evidence, method orchestration and enterprise navigation rather than static reporting alone.
-
-## Who is ENDOS for?
-
-Potential users include executives, controllers, enterprise architects, consultants, strategy teams, transformation leaders, risk managers and pilot customers in complex organizations.
+Sprint 6: Validation Center — replay cases and evidence logic.

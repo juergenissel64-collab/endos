@@ -1,25 +1,40 @@
-# ENDOS FAQ
+# ENDOS Dynamic Knowledge Graph – Sprint 5.1
 
-## What is ENDOS?
+## Purpose
 
-ENDOS stands for Enterprise Navigation & Decision Operating System. It is a platform concept for better executive navigation under uncertainty.
+Sprint 5.1 introduces the first interactive ENDOS object graph. The goal is to move beyond static documentation and represent ENDOS as a connected system of engines, methods, patents, publications, validation cases, pilot domains and architecture objects.
 
-## Is ENDOS a dashboard?
+## Included capabilities
 
-No. Dashboards are one possible interface. ENDOS is intended as a broader decision and navigation system that can include dashboards, knowledge objects, methods, validation logic and executive workflows.
+- Clickable graph nodes
+- Dragging of individual nodes
+- Canvas panning
+- Mouse-wheel zoom
+- Search across node names, IDs, types, status and descriptions
+- Filter chips by object type
+- Detail panel with metadata
+- Relationship buttons for navigation between connected objects
+- JSON-based graph data model in `data/endos-graph.json`
 
-## What is the current maturity level?
+## Main files
 
-Foundation stage. The repository, GitHub Pages site and documentation baseline are established. Functional modules will be added sprint by sprint.
+- `pages/knowledge-graph.html`
+- `assets/js/graph.js`
+- `data/endos-graph.json`
+- `assets/css/style.css`
 
-## What is the next implementation step?
+## Object types
 
-Sprint 2: Executive Mission Control.
+- Platform
+- Engine
+- Knowledge Object
+- Method
+- Patent
+- Publication
+- Validation Case
+- Pilot
+- Repository
 
-## What makes ENDOS different?
+## Next development step
 
-ENDOS focuses on adaptive relevance, executive attention, uncertainty, evidence, method orchestration and enterprise navigation rather than static reporting alone.
-
-## Who is ENDOS for?
-
-Potential users include executives, controllers, enterprise architects, consultants, strategy teams, transformation leaders, risk managers and pilot customers in complex organizations.
+Sprint 5.2 should connect the graph to a larger object register and introduce object IDs, evidence strength, source references, maturity scoring and patent-family mapping.

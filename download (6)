@@ -1,79 +1,74 @@
-# ENDOS Roadmap
+# ENDOS Architecture Baseline
 
-## Sprint 1 – Foundation
+## Purpose
 
-Goal: Establish ENDOS as a stable public repository and GitHub Pages platform.
+ENDOS is designed as an Enterprise Navigation & Decision Operating System. It is not only a dashboard, but a layered system for understanding, prioritizing and acting under uncertainty.
 
-Deliverables:
+## Core Layers
 
-- GitHub Pages website
-- Professional repository structure
-- README and documentation baseline
-- Release notes and changelog
-- Initial architecture baseline
+### 1. Knowledge Layer
 
-## Sprint 2 – Executive Mission Control
+Stores and structures:
 
-Goal: Turn the landing page into an operational executive workspace.
+- Knowledge Objects
+- Enterprise signals
+- Evidence fragments
+- Research notes
+- Case observations
+- Assumptions and gaps
 
-Planned modules:
+### 2. Methods Layer
 
-- Today's Mission
-- Current Sprint
-- Top Priorities
-- Open Gaps
-- Decision Focus
-- Architecture Status
-- Research Watch
-- Pilot Readiness
+Contains reusable analytical and decision methods, for example:
 
-## Sprint 3 – Architecture Explorer
+- Bayesian reasoning
+- Scenario analysis
+- Game theory
+- Operations research
+- TRIZ
+- Monte Carlo reasoning
+- Root cause analysis
+- Gap analysis
 
-Goal: Provide a structured, navigable view of ENDOS architecture.
+### 3. Orchestration Layer
 
-Planned modules:
+Selects and combines methods according to context, uncertainty, evidence level, decision type and available data.
 
-- Layer map
-- Engine map
-- Object model
-- Decision flow
-- Method orchestration view
+### 4. Execution Layer
 
-## Sprint 4 – Knowledge Repository Browser
+Transforms insights into:
 
-Goal: Make Knowledge Objects, Patent Objects and Architecture Decisions searchable and understandable.
+- Executive priorities
+- Recommended actions
+- Sprint tasks
+- Pilot interventions
+- Decision briefings
 
-Planned modules:
+### 5. Validation Layer
 
-- Object cards
-- Category filters
-- Evidence status
-- Gap indicators
-- Object lifecycle
+Tests whether ENDOS logic produces useful signals and decision support.
 
-## Sprint 5 – Validation Center
+Key mechanisms:
 
-Goal: Build evidence through historical replay and pilot cases.
+- Historical Replay Validation
+- Pilot evidence
+- Case comparison
+- Assumption tracking
+- Evidence scoring
 
-Candidate replay cases:
+### 6. Learning Layer
 
-- Nokia
-- Kodak
-- Leoni
-- Signa
-- Siemens Energy
-- Continental
-- ZF
-- Microsoft
+Uses feedback and observed outcomes to improve knowledge objects, methods, thresholds and navigation logic.
 
-## Sprint 6 – Patent Intelligence
+## Design Principles
 
-Goal: Structure patent families, claims, novelty areas and search evidence.
+- Attention precedes decision quality.
+- Relevance must be adaptive, not static.
+- Evidence and uncertainty must be explicit.
+- Gaps are first-class information objects.
+- Methods should be reusable and orchestrated.
+- Enterprise navigation requires internal and external signals.
 
-## Sprint 7 – Pilot Evidence Management
+## Current Status
 
-Goal: Prepare structured pilots, quick findings and ROI evidence.
-
-## Sprint 8 – Enterprise Knowledge Graph
-
-Goal: Connect objects, signals, methods, decisions, interventions and outcomes.
+Foundation Release V1.1 establishes the repository and public platform structure. Functional engines will be added in subsequent sprints.
