@@ -1,60 +1,30 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ENDOS Mission Control V4.1 – Offline Preview</title>
-<style>
-:root{--bg:#07162f;--panel:#0d2145;--panel2:#102a56;--line:#23446f;--text:#edf5ff;--muted:#a8bbd6;--gold:#d8ad55;--cyan:#5fd0ff;--green:#6ee7a6;--yellow:#ffd166;--red:#ff6b6b}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#14376d,#07162f 42%,#031027);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text)}main{display:flex;min-height:100vh}aside{width:295px;background:rgba(4,15,35,.82);border-right:1px solid var(--line);padding:24px;position:sticky;top:0;height:100vh}.navbtn{width:100%;display:flex;align-items:center;gap:12px;background:transparent;border:1px solid transparent;color:var(--muted);padding:12px;border-radius:14px;margin:5px 0;cursor:pointer;text-align:left;font-size:14px}.navbtn:hover,.navbtn.active{background:linear-gradient(135deg,rgba(216,173,85,.18),rgba(95,208,255,.10));border-color:rgba(216,173,85,.35);color:#fff}.brand{margin-bottom:24px}.brand span{display:block;color:var(--gold);font-weight:800;letter-spacing:2px;font-size:24px}.brand b{color:var(--muted);font-size:13px}.content{flex:1;padding:28px;max-width:1550px}.grid{display:grid;gap:20px}.grid.two{grid-template-columns:1.2fr .8fr}.card{background:linear-gradient(180deg,rgba(16,42,86,.94),rgba(10,30,64,.88));border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 18px 50px rgba(0,0,0,.28)}.card.full{grid-column:1/-1}.hero h1{font-size:42px;margin:14px 0}.hero p{font-size:18px;color:var(--muted);line-height:1.5}.pill{display:inline-block;border:1px solid rgba(216,173,85,.45);color:var(--gold);border-radius:999px;padding:5px 10px;font-size:12px;letter-spacing:.3px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}.metrics div{background:rgba(255,255,255,.06);padding:16px;border-radius:18px}.metrics strong{display:block;font-size:28px;color:#fff}.metrics span,.mini,.links{color:var(--muted);font-size:13px}.row{display:grid;grid-template-columns:130px 44px 1fr;align-items:center;gap:12px;margin:14px 0}.progress{height:9px;background:rgba(255,255,255,.1);border-radius:10px;overflow:hidden}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--cyan));border-radius:10px}.clean{padding-left:18px;color:var(--muted);line-height:1.9}.alert{border-left:4px solid var(--cyan);background:rgba(255,255,255,.06);padding:12px;margin:10px 0;border-radius:12px}.alert span{display:block;color:var(--muted);margin-top:3px}.alert.red{border-color:var(--red)}.alert.yellow{border-color:var(--yellow)}.alert.green{border-color:var(--green)}.toolbar{display:flex;justify-content:space-between;gap:20px;align-items:center}.toolbar input{background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:14px;color:#fff;padding:12px 14px;min-width:340px}.object-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px}.object{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px}.object h3{margin:12px 0 8px}.object p{color:var(--muted);line-height:1.45}.mini,.score{display:flex;justify-content:space-between;gap:10px}.score{margin:16px 0 7px}.universe{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}.planet{min-height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,rgba(95,208,255,.35),rgba(216,173,85,.18),rgba(255,255,255,.04));border:1px solid rgba(216,173,85,.35);font-weight:700}.release-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}.release{background:rgba(255,255,255,.055);padding:18px;border-radius:20px;border:1px solid rgba(255,255,255,.08)}.checklist{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:20px}.checklist div{background:rgba(255,255,255,.07);padding:16px;border-radius:16px}.module{display:none}.module.active{display:block}.badge{float:right;color:var(--cyan);font-size:12px}.timeline{display:grid;gap:10px}.timeline div{padding:14px;border-radius:16px;background:rgba(255,255,255,.06);border-left:4px solid var(--gold)}@media(max-width:900px){main{display:block}aside{width:auto;height:auto;position:relative}.grid.two{grid-template-columns:1fr}.toolbar{display:block}.toolbar input{min-width:100%;margin-top:12px}.metrics,.universe{grid-template-columns:repeat(2,1fr)}}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ENDOS – Enterprise Navigation & Decision Operating System</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-<main>
-<aside>
-  <div class="brand"><span>ENDOS</span><b>Mission Control V4.1</b></div>
-  <button class="navbtn active" data-view="dashboard">🚀 Mission Control</button>
-  <button class="navbtn" data-view="universe">🌌 Universe Explorer</button>
-  <button class="navbtn" data-view="emar">🧠 EMAR Objects</button>
-  <button class="navbtn" data-view="patent">📜 Patent Studio</button>
-  <button class="navbtn" data-view="scientific">🔬 Scientific Studio</button>
-  <button class="navbtn" data-view="software">💻 Software Studio</button>
-  <button class="navbtn" data-view="business">📈 Business Studio</button>
-  <button class="navbtn" data-view="validation">🧪 Validation Studio</button>
-  <button class="navbtn" data-view="release">🗺️ Release Studio</button>
-  <button class="navbtn" data-view="sherlock">🔍 Sherlock Mode</button>
-</aside>
-<section class="content">
-<div id="dashboard" class="module active">
-<section class="grid two">
-  <div class="card hero"><span class="pill">Offline Preview · läuft per Doppelklick</span><h1>Enterprise Navigation Engineering Platform</h1><p>Oberste Steuerungszentrale für ENDOS, EMAR, Patente, Forschung, Software, Validierung und Kommerzialisierung. Diese V4.1 enthält zusätzlich eine stabile Offline-Preview.</p><div class="metrics"><div><strong>8</strong><span>Studios</span></div><div><strong>4</strong><span>Releases</span></div><div><strong>6</strong><span>Meta-Engines</span></div><div><strong>1</strong><span>Single Source</span></div></div></div>
-  <div class="card"><h2>Readiness</h2><div class="row"><span>Scientific</span><b>94%</b><div class="progress"><span style="width:94%"></span></div></div><div class="row"><span>Architecture</span><b>88%</b><div class="progress"><span style="width:88%"></span></div></div><div class="row"><span>Patent</span><b>43%</b><div class="progress"><span style="width:43%"></span></div></div><div class="row"><span>Software</span><b>24%</b><div class="progress"><span style="width:24%"></span></div></div><div class="row"><span>Validation</span><b>18%</b><div class="progress"><span style="width:18%"></span></div></div><div class="row"><span>Commercial</span><b>15%</b><div class="progress"><span style="width:15%"></span></div></div></div>
-  <div class="card"><h2>Heute priorisieren</h2><ul class="clean"><li>R4.1 Core Platform stabilisieren</li><li>EMAR Object Model finalisieren</li><li>Patent Studio mit PF-01 bis PF-15 befüllen</li><li>Sherlock Mode für fehlende Evidenz aktivieren</li></ul></div>
-  <div class="card"><h2>Sherlock Alerts</h2><div class="alert red"><b>Patentlücke</b><span>PF-03 Reasoning Architecture benötigt Claim-Mapping.</span></div><div class="alert yellow"><b>Fehlende Evidenz</b><span>Human Dynamics benötigt Pilot- und Literaturvalidierung.</span></div><div class="alert green"><b>Commercial Opportunity</b><span>EMAR als IP-Workbench ist produktfähig.</span></div></div>
-</section>
-</div>
-<div id="universe" class="module"><div class="card full"><h2>ENDOS Universe Explorer</h2><p>Zoomstufen: Universe → Domain → Cluster → Framework → Engine → Object → Claim/API/Evidence.</p><div class="universe"><div class="planet">Scientific</div><div class="planet">Architecture</div><div class="planet">Knowledge</div><div class="planet">Patent</div><div class="planet">Software</div><div class="planet">Validation</div><div class="planet">Business</div><div class="planet">Release</div></div></div></div>
-<div id="emar" class="module"></div><div id="patent" class="module"></div><div id="scientific" class="module"></div><div id="software" class="module"></div><div id="business" class="module"></div><div id="validation" class="module"></div>
-<div id="release" class="module"><div class="card full"><h2>Release Engineering</h2><div class="release-grid"><div class="release"><span class="pill">R4.1</span><h3>Core Platform</h3><p>Mission Control, Universe Explorer, EMAR Repository, Object Registry.</p><div class="progress"><span style="width:65%"></span></div><b>65%</b></div><div class="release"><span class="pill">R4.2</span><h3>Engineering Studios</h3><p>Patent, Scientific, Software, Business und Validation Studio.</p><div class="progress"><span style="width:42%"></span></div><b>42%</b></div><div class="release"><span class="pill">R4.3</span><h3>Intelligence Layer</h3><p>RIE, ARE, KCE, IPIE, SGE, COE und Sherlock Mode.</p><div class="progress"><span style="width:28%"></span></div><b>28%</b></div><div class="release"><span class="pill">R4.4</span><h3>Generator Layer</h3><p>Patent-, Journal-, Architektur-, Präsentations- und Report-Generator.</p><div class="progress"><span style="width:16%"></span></div><b>16%</b></div></div></div></div>
-<div id="sherlock" class="module"><div class="card full"><h2>Sherlock Mode</h2><p>Automatische Prüfung auf Dubletten, Inkonsistenzen, fehlende Evidenz, fehlende Patentzuordnungen und Commercial Opportunities.</p><div class="checklist"><div>✓ Fehlende Verknüpfungen: 14</div><div>✓ Patent-Gaps: 9</div><div>✓ Scientific Gaps: 7</div><div>✓ Redundanz-Kandidaten: 5</div><div>✓ Commercial Opportunities: 11</div></div></div></div>
-</section></main>
-<script>
-const objects=[
-{id:'OBJ-ENG-0047',domain:'scientific',type:'Engine',name:'Executive Attention Engineering',description:'Priorisiert begrenzte Management-Aufmerksamkeit.',readiness:94,status:'Active',links:['EDDT','PF-05','Dashboard']},
-{id:'OBJ-REP-0001',domain:'emar',type:'Repository',name:'EMAR',description:'Single Source of Truth für ENDOS-Wissensobjekte.',readiness:78,status:'Core',links:['EMTS','Knowledge Graph','Release Generator']},
-{id:'OBJ-PAT-001',domain:'patent',type:'Patent Family',name:'PF-01 Enterprise Navigation Architecture',description:'Hauptfamilie für ENOS/ENDOS-Architektur.',readiness:43,status:'Draft',links:['Claims','Disclosure','Technical Effect']},
-{id:'OBJ-SCI-010',domain:'scientific',type:'Science',name:'Enterprise Navigation Science',description:'Wissenschaftliches Fundament der Unternehmensnavigation.',readiness:90,status:'Foundation',links:['ENBOK','ERWS','EHDS']},
-{id:'OBJ-SW-012',domain:'software',type:'Module',name:'Universe Explorer',description:'Interaktive Landkarte des ENDOS-Universums.',readiness:36,status:'Prototype',links:['EMAR','Graph','Dashboard']},
-{id:'OBJ-BUS-008',domain:'business',type:'Product',name:'Executive IP Workbench',description:'Kommerzialisierbare Workbench für Forschung, IP und Architektur.',readiness:31,status:'Opportunity',links:['Patent Studio','Scientific Studio','Licensing']},
-{id:'OBJ-VAL-004',domain:'validation',type:'Program',name:'Historical Replay Validation',description:'Validierung anhand historischer Unternehmensfälle.',readiness:29,status:'Planned',links:['Leoni','Kodak','Nokia']}
-];
-function renderObjects(domain){
- const title={emar:'EMAR Object Explorer',patent:'Patent Studio Objects',scientific:'Scientific Studio Objects',software:'Software Studio Objects',business:'Business Studio Objects',validation:'Validation Studio Objects'}[domain]||'Objects';
- const data=objects.filter(o=>domain==='emar'||o.domain===domain);
- return `<div class="card full"><div class="toolbar"><h2>${title}</h2><input id="search-${domain}" placeholder="Objekt, Engine, Patent, Framework suchen..."></div><div class="object-grid" id="grid-${domain}"></div></div>`;
-}
-function card(o){return `<article class="object"><span class="pill">${o.type}</span><span class="badge">${o.status}</span><h3>${o.name}</h3><p>${o.description}</p><div class="mini"><span>${o.id}</span><span>${o.readiness}%</span></div><div class="score"><span>Readiness</span><b>${o.readiness}%</b></div><div class="progress"><span style="width:${o.readiness}%"></span></div><p class="links">Verknüpft: ${o.links.join(' · ')}</p></article>`}
-function setupDomain(domain){const el=document.getElementById(domain); if(!el||domain==='release'||domain==='sherlock'||domain==='dashboard'||domain==='universe')return; el.innerHTML=renderObjects(domain); const grid=document.getElementById('grid-'+domain); const input=document.getElementById('search-'+domain); const draw=()=>{const q=(input.value||'').toLowerCase(); grid.innerHTML=objects.filter(o=>(domain==='emar'||o.domain===domain)&&(o.name.toLowerCase().includes(q)||o.type.toLowerCase().includes(q)||o.id.toLowerCase().includes(q))).map(card).join('')}; input.addEventListener('input',draw); draw();}
-['emar','patent','scientific','software','business','validation'].forEach(setupDomain);
-document.querySelectorAll('.navbtn').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.module').forEach(m=>m.classList.remove('active'));document.getElementById(btn.dataset.view).classList.add('active')}));
-</script>
-</body></html>
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">ENDOS Master Repository V1.0</p>
+      <h1>Enterprise Navigation & Decision Operating System</h1>
+      <p class="lead">Professionelle GitHub-Pages-Startseite für ENDOS: Architektur, Engines, Validierung, Patente, Publikationen und Entwicklungsstand.</p>
+      <div class="actions">
+        <a href="docs/architecture.md">Architektur ansehen</a>
+        <a href="docs/roadmap.md">Roadmap ansehen</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article><h2>Architecture Baseline</h2><p>Strukturierte Grundlage für Engines, Wissensobjekte, Methoden, Orchestrierung und Executive Workspace.</p></article>
+      <article><h2>Repository</h2><p>Zentraler Ablageort für Architecture Decisions, Knowledge Objects, Patent Objects, Database und Publications.</p></article>
+      <article><h2>Validation</h2><p>Vorbereitet für Historical Replay Validation, Pilot Cases und Evidence Book.</p></article>
+      <article><h2>Next Sprint</h2><p>Von Einzeldateien zur präsentierbaren Webplattform mit sauberem Release- und Dokumentationsmodell.</p></article>
+    </section>
+  </main>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
