@@ -1,0 +1,32 @@
+# ENDOS Mission Control
+
+Mission Control ist der geplante Executive Workspace von ENDOS. Er soll Führungskräfte nicht nur informieren, sondern aktiv bei Priorisierung, Evidenzbewertung und nächster Aktion unterstützen.
+
+## Zweck
+
+Mission Control bündelt:
+
+- Today's Mission
+- Top Decisions
+- Risk Watch
+- Opportunity Watch
+- Gap Radar
+- Validation Status
+- Next Actions
+- Sprint Status
+
+## Designprinzip
+
+Nicht mehr klassisches Dashboard, sondern operative Navigationsoberfläche für Managemententscheidungen unter Unsicherheit.
+
+## Sprint-2-Status
+
+Die aktuelle Version ist ein statischer GitHub-Pages-Prototyp. Sie bereitet die spätere Interaktivität vor und macht ENDOS als Plattformlogik sichtbarer.
+
+## Nächste Ausbaustufen
+
+1. Dynamische Statuskarten
+2. Repository-Anbindung
+3. Knowledge-Object-Zählung
+4. Pilot- und Replay-Cases
+5. Entscheidungs- und Gap-Logik

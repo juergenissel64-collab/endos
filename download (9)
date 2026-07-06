@@ -1,0 +1,17 @@
+# Release Notes — ENDOS V1.5
+
+## Sprint 5: Dynamic Knowledge Graph
+
+This release introduces the first connected object view for ENDOS. It is intentionally lightweight and static, but it establishes the structural foundation for a future repository-driven enterprise knowledge graph.
+
+## Included
+
+- Knowledge Graph page
+- Graph JavaScript renderer
+- Static graph object data
+- Knowledge Graph documentation
+- Updated changelog and README
+
+## Next Sprint Candidate
+
+Sprint 6: Validation Center — replay cases and evidence logic.

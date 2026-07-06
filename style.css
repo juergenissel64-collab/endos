@@ -1,0 +1,32 @@
+# ENDOS Dynamic Knowledge Graph
+
+Release: Sprint 5 / V1.5
+
+## Purpose
+
+The Dynamic Knowledge Graph is the first step toward representing ENDOS as a connected system of objects rather than a collection of documents.
+
+## Initial Object Types
+
+- Platform objects
+- Architecture objects
+- Knowledge objects
+- Method objects
+- Orchestration objects
+- Executive workspace objects
+- Validation objects
+- Patent objects
+- Research objects
+- Pilot objects
+
+## Strategic Value
+
+The graph helps visitors and future users navigate from one concept to its related evidence, implementation logic, patent relevance, validation cases and pilot applications.
+
+## Next Development Steps
+
+1. Replace the static graph with repository-derived data.
+2. Add object metadata, status, maturity and evidence scores.
+3. Link graph nodes to concrete Knowledge Objects, Patent Objects and Validation Cases.
+4. Introduce search, filtering and relationship types.
+5. Use the graph as the basis for an enterprise navigation cockpit.
