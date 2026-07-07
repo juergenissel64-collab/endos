@@ -1,1 +1,208 @@
-:root{--bg:#07152c;--panel:#0d2141;--panel2:#102a52;--text:#e8f1ff;--muted:#9fb3d1;--line:#37577f;--accent:#58d6ff;--accent2:#9ee493;--warn:#ffd166}*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at 15% 0%,#163c70 0,#07152c 38%,#030914 100%);color:var(--text)}.topbar{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;border-bottom:1px solid rgba(255,255,255,.12);background:rgba(4,12,27,.75);backdrop-filter:blur(12px);position:sticky;top:0;z-index:10}.brand{font-weight:800;letter-spacing:.12em;color:#fff;text-decoration:none}.topbar nav{display:flex;gap:18px;flex-wrap:wrap}.topbar nav a{color:var(--muted);text-decoration:none;font-size:14px}.topbar nav a.active,.topbar nav a:hover{color:var(--accent)}.shell{max-width:1280px;margin:0 auto;padding:40px 24px}.hero{padding:28px 0 18px}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:700}.hero h1{font-size:clamp(34px,5vw,64px);margin:8px 0 12px}.hero p{max-width:860px;color:var(--muted);font-size:18px;line-height:1.65}.controls{display:grid;grid-template-columns:1fr 220px 130px;gap:12px;margin:24px 0}.controls input,.controls select,.controls button{border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(13,33,65,.85);color:var(--text);padding:13px 15px;font-size:14px}.controls button{cursor:pointer}.controls button:hover{border-color:var(--accent);color:var(--accent)}.workspace{display:grid;grid-template-columns:1fr 340px;gap:20px}.graph-panel,.details{background:linear-gradient(180deg,rgba(16,42,82,.95),rgba(8,23,46,.92));border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,.35)}.graph-panel{min-height:650px;overflow:hidden}.details{padding:22px;min-height:300px}.details h2{margin:0 0 10px}.details p,.details li{color:var(--muted);line-height:1.55}.badge{display:inline-block;border:1px solid rgba(88,214,255,.45);color:var(--accent);padding:4px 9px;border-radius:999px;font-size:12px;margin:0 0 12px}.node{cursor:pointer}.node circle{stroke:rgba(255,255,255,.75);stroke-width:2;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35))}.node text{fill:#fff;font-size:12px;text-anchor:middle;pointer-events:none}.link{stroke:var(--line);stroke-width:2;opacity:.75}.hidden{display:none}.dim{opacity:.16}@media(max-width:900px){.controls{grid-template-columns:1fr}.workspace{grid-template-columns:1fr}.topbar{height:auto;align-items:flex-start;gap:14px;flex-direction:column;padding:18px 24px}.graph-panel{min-height:520px}}
+{
+  "meta": {
+    "name": "ENDOS Knowledge Graph",
+    "version": "1.0",
+    "release": "RC1.1"
+  },
+  "nodes": [
+    {
+      "id": "ENDOS",
+      "type": "Platform",
+      "name": "ENDOS Platform",
+      "status": "active",
+      "maturity": "foundation",
+      "description": "Enterprise Navigation & Decision Operating System."
+    },
+    {
+      "id": "ARCH-001",
+      "type": "Architecture",
+      "name": "Enterprise Navigation Architecture",
+      "status": "active",
+      "maturity": "baseline",
+      "description": "Core architecture connecting knowledge, methods, orchestration, execution and learning layers."
+    },
+    {
+      "id": "ENG-EAE",
+      "type": "Engine",
+      "name": "Executive Attention Engineering",
+      "status": "active",
+      "maturity": "concept",
+      "description": "Directs executive attention before perception, interpretation and decision-making."
+    },
+    {
+      "id": "ENG-EESIE",
+      "type": "Engine",
+      "name": "External Enterprise Signal Intelligence Engine",
+      "status": "active",
+      "maturity": "concept",
+      "description": "Combines publicly observable weak signals into enterprise context."
+    },
+    {
+      "id": "ENG-EAWE",
+      "type": "Engine",
+      "name": "Executive Adaptive Workspace Engine",
+      "status": "planned",
+      "maturity": "module",
+      "description": "Daily executive workspace with mission, priorities, risks and opportunities."
+    },
+    {
+      "id": "ENG-EEEE",
+      "type": "Engine",
+      "name": "Enterprise Early Evidence Engine",
+      "status": "active",
+      "maturity": "concept",
+      "description": "Detects early evidence of structural change."
+    },
+    {
+      "id": "METH-GT",
+      "type": "Method",
+      "name": "Game Theory",
+      "status": "candidate",
+      "maturity": "method",
+      "description": "Models stakeholder incentives and strategic moves."
+    },
+    {
+      "id": "METH-BAYES",
+      "type": "Method",
+      "name": "Bayesian Updating",
+      "status": "candidate",
+      "maturity": "method",
+      "description": "Uncertainty-aware belief revision."
+    },
+    {
+      "id": "METH-OR",
+      "type": "Method",
+      "name": "Operations Research",
+      "status": "candidate",
+      "maturity": "method",
+      "description": "Optimisation, allocation and constraint solving."
+    },
+    {
+      "id": "PAT-001",
+      "type": "Patent",
+      "name": "Enterprise Navigation Platform Patent Family",
+      "status": "draft",
+      "maturity": "ip",
+      "description": "Umbrella patent family for the connected platform architecture."
+    },
+    {
+      "id": "RES-DBA",
+      "type": "Research",
+      "name": "Dashboard Usage & Functionality DBA Research",
+      "status": "completed",
+      "maturity": "research",
+      "description": "Research foundation on performance dashboards from a manager perspective."
+    },
+    {
+      "id": "VAL-LEONI",
+      "type": "Validation",
+      "name": "Leoni Historical Replay",
+      "status": "planned",
+      "maturity": "evidence",
+      "description": "Replay validation case for structural signals."
+    },
+    {
+      "id": "PILOT-HOSP",
+      "type": "Pilot",
+      "name": "Hospital Operations Pilot",
+      "status": "candidate",
+      "maturity": "pilot",
+      "description": "Pilot context for resource allocation and process improvement."
+    },
+    {
+      "id": "EVID-001",
+      "type": "Evidence",
+      "name": "Weak Signal Evidence Object",
+      "status": "active",
+      "maturity": "data-model",
+      "description": "Evidence object for weak signals, source quality and decision relevance."
+    }
+  ],
+  "links": [
+    {
+      "source": "ENDOS",
+      "target": "ARCH-001",
+      "relation": "implements"
+    },
+    {
+      "source": "ENDOS",
+      "target": "ENG-EAE",
+      "relation": "contains"
+    },
+    {
+      "source": "ENDOS",
+      "target": "ENG-EESIE",
+      "relation": "contains"
+    },
+    {
+      "source": "ENDOS",
+      "target": "ENG-EAWE",
+      "relation": "contains"
+    },
+    {
+      "source": "ENDOS",
+      "target": "ENG-EEEE",
+      "relation": "contains"
+    },
+    {
+      "source": "ARCH-001",
+      "target": "METH-BAYES",
+      "relation": "uses"
+    },
+    {
+      "source": "ARCH-001",
+      "target": "METH-OR",
+      "relation": "uses"
+    },
+    {
+      "source": "ARCH-001",
+      "target": "METH-GT",
+      "relation": "uses"
+    },
+    {
+      "source": "ENG-EAE",
+      "target": "PAT-001",
+      "relation": "protected by"
+    },
+    {
+      "source": "ENG-EESIE",
+      "target": "EVID-001",
+      "relation": "collects"
+    },
+    {
+      "source": "ENG-EEEE",
+      "target": "EVID-001",
+      "relation": "evaluates"
+    },
+    {
+      "source": "ENG-EAWE",
+      "target": "ENG-EAE",
+      "relation": "applies"
+    },
+    {
+      "source": "ENG-EESIE",
+      "target": "VAL-LEONI",
+      "relation": "validated by"
+    },
+    {
+      "source": "RES-DBA",
+      "target": "ENG-EAE",
+      "relation": "informs"
+    },
+    {
+      "source": "PILOT-HOSP",
+      "target": "ENG-EAWE",
+      "relation": "uses"
+    },
+    {
+      "source": "METH-GT",
+      "target": "ENG-EAE",
+      "relation": "supports"
+    },
+    {
+      "source": "METH-BAYES",
+      "target": "ENG-EEEE",
+      "relation": "supports"
+    }
+  ]
+}
