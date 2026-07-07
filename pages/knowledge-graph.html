@@ -3,235 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ENDOS Knowledge Graph</title>
+  <title>ENDOS Knowledge Graph – Sprint 6</title>
   <style>
-    :root{
-      --bg:#061427;--panel:#0b223d;--panel2:#102b4b;--line:#274766;--text:#eaf4ff;
-      --muted:#a8c4df;--accent:#59a9ff;--accent2:#6ee7b7;--warn:#fbbf24;--risk:#fb7185;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at top left,#0f3159 0,#061427 42%,#03101f 100%);color:var(--text)}
-    a{color:var(--accent);text-decoration:none}
-    .wrap{max-width:1400px;margin:0 auto;padding:28px}
-    header{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:24px}
-    .brand{font-weight:800;letter-spacing:.18em;color:#7cc4ff;font-size:14px;text-transform:uppercase}
-    nav{display:flex;gap:10px;flex-wrap:wrap}
-    nav a{padding:9px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text);background:rgba(255,255,255,.03)}
-    .hero{border:1px solid var(--line);border-radius:28px;padding:28px;background:linear-gradient(135deg,rgba(16,43,75,.92),rgba(6,20,39,.86));box-shadow:0 20px 70px rgba(0,0,0,.35)}
-    h1{font-size:clamp(34px,5vw,72px);line-height:.98;margin:14px 0 14px}
-    .sub{font-size:20px;color:var(--muted);max-width:900px;line-height:1.5}
-    .grid{display:grid;grid-template-columns:300px 1fr 340px;gap:18px;margin-top:18px}
-    .panel{border:1px solid var(--line);border-radius:20px;background:rgba(8,30,55,.82);padding:18px;min-height:100px}
-    .panel h2,.panel h3{margin:0 0 12px}
-    .controls input{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#07182c;color:var(--text);margin-bottom:12px}
-    .filters{display:grid;gap:8px}
-    .filter{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:rgba(255,255,255,.03)}
-    .filter.active{border-color:var(--accent);background:rgba(89,169,255,.14)}
-    .graph{height:650px;position:relative;overflow:hidden}
-    svg{width:100%;height:100%;display:block}
-    .edge{stroke:#41698f;stroke-width:1.6;opacity:.75}
-    .node circle{stroke:#d7ecff;stroke-width:1.5;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));cursor:pointer}
-    .node text{font-size:12px;fill:#eaf4ff;pointer-events:none;text-anchor:middle;font-weight:700}
-    .node.dim,.edge.dim{opacity:.12}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
-    .stat{border:1px solid var(--line);border-radius:18px;padding:16px;background:rgba(255,255,255,.04)}
-    .num{font-size:30px;font-weight:800;color:#fff}
-    .label{color:var(--muted);font-size:13px}
-    .detail{line-height:1.55;color:var(--muted)}
-    .badge{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(89,169,255,.16);border:1px solid var(--line);color:var(--text);font-size:12px;margin:4px 4px 4px 0}
-    .legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-    .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:6px}
-    .btn{border:1px solid var(--line);background:#0a2441;color:var(--text);border-radius:12px;padding:10px 12px;cursor:pointer}
-    .btn:hover{border-color:var(--accent)}
-    @media(max-width:1050px){.grid{grid-template-columns:1fr}.graph{height:560px}.stats{grid-template-columns:repeat(2,1fr)}header{display:block}nav{margin-top:14px}}
+    :root{--bg:#061426;--panel:#0b2038;--panel2:#102b49;--line:#2e5f91;--text:#eef6ff;--muted:#a9c1dc;--accent:#62b5ff;--accent2:#8be9d2;--warn:#ffcf66;--danger:#ff7b7b;--card:#0d2540;--border:rgba(127,190,255,.28)}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top left,#123f68 0,#061426 42%,#03101f 100%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;min-height:100vh} a{color:var(--accent);text-decoration:none}.top{position:sticky;top:0;z-index:20;background:rgba(3,16,31,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}.nav{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 22px}.brand{font-weight:800;letter-spacing:.14em;color:#dff0ff}.navlinks{display:flex;gap:14px;flex-wrap:wrap}.navlinks a{font-size:13px;color:var(--muted)}.navlinks a.active,.navlinks a:hover{color:white}.wrap{max-width:1440px;margin:auto;padding:24px}.hero{border:1px solid var(--border);background:linear-gradient(135deg,rgba(15,50,85,.92),rgba(6,20,38,.92));border-radius:26px;padding:26px;margin-bottom:18px;box-shadow:0 24px 70px rgba(0,0,0,.25)}.eyebrow{color:#7fc5ff;font-size:12px;letter-spacing:.2em;font-weight:800}.hero h1{font-size:clamp(32px,4.5vw,64px);line-height:1.02;margin:12px 0}.hero p{color:#c9def4;font-size:18px;max-width:950px;line-height:1.55}.stats{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:12px;margin-top:18px}.stat{background:rgba(9,31,54,.8);border:1px solid var(--border);border-radius:18px;padding:14px}.stat b{font-size:26px;display:block}.stat span{color:var(--muted);font-size:13px}.app{display:grid;grid-template-columns:270px minmax(520px,1fr) 340px;gap:16px;align-items:stretch}.panel{background:rgba(8,27,48,.88);border:1px solid var(--border);border-radius:22px;overflow:hidden;box-shadow:0 16px 50px rgba(0,0,0,.22)}.panel h2{font-size:16px;margin:0;padding:16px 18px;border-bottom:1px solid var(--border);background:rgba(16,43,73,.55)}.body{padding:16px}.search{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--border);background:#07192d;color:var(--text);outline:none}.filter{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:10px 0;padding:10px 12px;border:1px solid rgba(127,190,255,.18);border-radius:14px;background:rgba(255,255,255,.03);cursor:pointer}.filter input{transform:scale(1.1)}.legend-dot{width:12px;height:12px;border-radius:999px;display:inline-block;margin-right:8px}.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{border:1px solid var(--border);background:#0c2a48;color:var(--text);padding:9px 11px;border-radius:12px;cursor:pointer}.btn:hover{background:#12385f}.graph-shell{height:680px;position:relative}.toolbar{position:absolute;top:12px;left:12px;z-index:2;display:flex;gap:8px}.graph{width:100%;height:100%;display:block;cursor:grab}.graph:active{cursor:grabbing}.link{stroke:#4a79aa;stroke-width:1.8;opacity:.72}.node{cursor:pointer;filter:drop-shadow(0 6px 12px rgba(0,0,0,.36))}.node circle{stroke:rgba(255,255,255,.75);stroke-width:1.2}.node text{fill:#eaf6ff;font-size:12px;font-weight:700;text-anchor:middle;pointer-events:none}.node.dim{opacity:.15}.link.dim{opacity:.08}.node.selected circle{stroke:#fff;stroke-width:3}.meta-title{font-size:24px;font-weight:800;margin:0 0 8px}.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:999px;padding:6px 10px;margin:4px 4px 4px 0;color:#d7ecff;background:rgba(98,181,255,.08);font-size:12px}.desc{color:#c9def4;line-height:1.55}.kv{display:grid;grid-template-columns:100px 1fr;gap:8px;margin:14px 0;color:#c9def4}.kv strong{color:#fff}.rel{border:1px solid rgba(127,190,255,.18);background:rgba(255,255,255,.03);border-radius:14px;padding:10px;margin:8px 0;cursor:pointer}.rel:hover{background:rgba(98,181,255,.1)}.empty{color:var(--muted);line-height:1.5}.list{max-height:230px;overflow:auto}.item{font-size:13px;padding:8px 10px;border-bottom:1px solid rgba(127,190,255,.12);cursor:pointer;color:#cfe4fa}.item:hover{background:rgba(98,181,255,.08)}.footer{color:#8fb0ce;text-align:center;padding:26px;font-size:13px}@media(max-width:1100px){.app{grid-template-columns:1fr}.graph-shell{height:560px}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.nav{align-items:flex-start;gap:10px;flex-direction:column}.stats{grid-template-columns:1fr}.wrap{padding:14px}.hero{padding:20px}.graph-shell{height:500px}}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <div class="brand">ENDOS V2 · Knowledge Graph</div>
-        <h1>Dynamic Knowledge Graph</h1>
-        <p class="sub">Interaktive Navigation durch Engines, Methoden, Patente, Forschung, Validierungsfälle und Pilotfelder. Dies ist das erste funktionale ENDOS-Core-Modul.</p>
-      </div>
-      <nav>
-        <a href="../index.html">Home</a>
-        <a href="./mission-control.html">Mission Control</a>
-        <a href="./knowledge-graph.html">Knowledge Graph</a>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <div class="stats">
-        <div class="stat"><div class="num" id="nodeCount">0</div><div class="label">Objects</div></div>
-        <div class="stat"><div class="num" id="edgeCount">0</div><div class="label">Relationships</div></div>
-        <div class="stat"><div class="num" id="typeCount">0</div><div class="label">Object Types</div></div>
-        <div class="stat"><div class="num">V1</div><div class="label">Functional Module</div></div>
-      </div>
-
-      <div class="grid">
-        <aside class="panel controls">
-          <h2>Explore</h2>
-          <input id="search" placeholder="Suche: Engine, Patent, Leoni..." />
-          <button class="btn" id="reset">Reset view</button>
-          <h3 style="margin-top:18px">Filter</h3>
-          <div class="filters" id="filters"></div>
-          <div class="legend" id="legend"></div>
-        </aside>
-
-        <main class="panel graph" id="graphPanel">
-          <svg id="graph" viewBox="0 0 900 650" aria-label="ENDOS Knowledge Graph"></svg>
-        </main>
-
-        <aside class="panel">
-          <h2>Object Detail</h2>
-          <div id="detail" class="detail">
-            Klicke auf einen Knoten im Graphen. Danach erscheinen hier Typ, Beschreibung, Status und Beziehungen.
-          </div>
-        </aside>
-      </div>
+  <header class="top"><div class="nav"><div class="brand">ENDOS</div><nav class="navlinks"><a href="../index.html">Home</a><a href="mission-control.html">Mission Control</a><a class="active" href="knowledge-graph.html">Knowledge Graph</a><a href="../README.md">Repository</a></nav></div></header>
+  <main class="wrap">
+    <section class="hero"><div class="eyebrow">SPRINT 6 · INTERACTIVE KNOWLEDGE GRAPH</div><h1>Dynamic Knowledge Graph</h1><p>Interaktive ENDOS-Komponente mit klickbaren Knoten, Drag & Drop, Zoom, Filter nach Objekttyp, Suche und Detailfenster mit Metadaten.</p><div class="stats" id="stats"></div></section>
+    <section class="app">
+      <aside class="panel"><h2>Filter & Suche</h2><div class="body"><input class="search" id="search" placeholder="Suche z. B. Patent, Engine, Evidence..."/><div id="filters"></div><div class="btnrow"><button class="btn" id="resetBtn">Reset</button><button class="btn" id="fitBtn">Graph zentrieren</button></div><h2 style="margin:18px -16px 0">Objekte</h2><div class="list" id="objectList"></div></div></aside>
+      <section class="panel graph-shell"><div class="toolbar"><button class="btn" id="zoomIn">+</button><button class="btn" id="zoomOut">−</button></div><svg class="graph" id="graph" role="img" aria-label="ENDOS Knowledge Graph"></svg></section>
+      <aside class="panel"><h2>Detailfenster</h2><div class="body" id="details"><p class="empty">Klicke auf einen Knoten, um Metadaten, Status und Beziehungen zu sehen.</p></div></aside>
     </section>
-  </div>
-
-  <script>
-    const graphData = {
-      nodes: [
-        {id:"ENDOS", type:"Platform", name:"ENDOS", status:"active", description:"Enterprise Navigation & Decision Operating System."},
-        {id:"ENG-EAE", type:"Engine", name:"Executive Attention Engineering", status:"active", description:"Steuert Aufmerksamkeit vor Wahrnehmung, Interpretation und Entscheidung."},
-        {id:"ENG-EAWE", type:"Engine", name:"Executive Adaptive Workspace", status:"prototype", description:"Executive Workspace für tägliche Mission, Risiken, Chancen und Entscheidungen."},
-        {id:"ENG-EESIE", type:"Engine", name:"External Signal Intelligence", status:"concept", description:"Integriert öffentlich beobachtbare schwache Signale."},
-        {id:"METH-BAYES", type:"Method", name:"Bayesian Updating", status:"active", description:"Aktualisiert Einschätzungen unter Unsicherheit."},
-        {id:"METH-GT", type:"Method", name:"Game Theory", status:"active", description:"Modelliert Akteursinteressen, Gegenreaktionen und strategische Pfade."},
-        {id:"KO-EDDT", type:"Knowledge", name:"Executive Decision Distortion Theory", status:"active", description:"Erklärt kumulative Verzerrungen entlang der Entscheidungsverarbeitungskette."},
-        {id:"PAT-001", type:"Patent", name:"Adaptive Enterprise Navigation", status:"draft", description:"Schutzfeld für adaptive Navigation, Wissensobjekte und Entscheidungsorchestrierung."},
-        {id:"PUB-DBA", type:"Publication", name:"DBA Dashboard Research", status:"source", description:"Dissertation zur Nutzung und Funktionalität von Business Performance Dashboards."},
-        {id:"VAL-LEONI", type:"Validation", name:"Leoni Replay Case", status:"planned", description:"Historischer Replay-Test zur frühen Erkennung von Navigationssignalen."},
-        {id:"PILOT-HOSP", type:"Pilot", name:"Hospital Resource Pilot", status:"candidate", description:"Pilotfeld für dynamische Ressourcenallokation in Kliniken."},
-        {id:"ENKG", type:"Knowledge", name:"Enterprise Knowledge Graph", status:"active", description:"Vernetzt Objekte, Methoden, Engines, Patente, Forschung und Validierung."}
-      ],
-      links: [
-        ["ENDOS","ENKG"],["ENDOS","ENG-EAE"],["ENDOS","ENG-EAWE"],["ENDOS","ENG-EESIE"],
-        ["ENG-EAE","KO-EDDT"],["ENG-EAE","METH-BAYES"],["ENG-EAWE","ENKG"],["ENG-EESIE","METH-BAYES"],
-        ["KO-EDDT","PAT-001"],["PUB-DBA","KO-EDDT"],["VAL-LEONI","ENG-EESIE"],["PILOT-HOSP","ENG-EAWE"],
-        ["METH-GT","ENG-EAWE"],["METH-GT","PAT-001"],["ENKG","PAT-001"],["ENKG","VAL-LEONI"],["ENKG","PUB-DBA"]
-      ]
-    };
-
-    const colors = {
-      Platform:"#59a9ff", Engine:"#6ee7b7", Method:"#fbbf24", Knowledge:"#a78bfa",
-      Patent:"#fb7185", Publication:"#38bdf8", Validation:"#f97316", Pilot:"#34d399"
-    };
-
-    const svg = document.getElementById("graph");
-    const detail = document.getElementById("detail");
-    const filtersEl = document.getElementById("filters");
-    const legendEl = document.getElementById("legend");
-    const searchEl = document.getElementById("search");
-    const resetBtn = document.getElementById("reset");
-
-    let activeTypes = new Set([...new Set(graphData.nodes.map(n => n.type))]);
-    let query = "";
-    let selected = null;
-
-    document.getElementById("nodeCount").textContent = graphData.nodes.length;
-    document.getElementById("edgeCount").textContent = graphData.links.length;
-    document.getElementById("typeCount").textContent = activeTypes.size;
-
-    const types = [...activeTypes];
-    types.forEach(t => {
-      const div = document.createElement("div");
-      div.className = "filter active";
-      div.innerHTML = `<span><span class="dot" style="background:${colors[t]}"></span>${t}</span><span id="count-${t}">${graphData.nodes.filter(n=>n.type===t).length}</span>`;
-      div.onclick = () => { activeTypes.has(t) ? activeTypes.delete(t) : activeTypes.add(t); div.classList.toggle("active"); render(); };
-      filtersEl.appendChild(div);
-
-      const leg = document.createElement("span");
-      leg.className = "badge";
-      leg.innerHTML = `<span class="dot" style="background:${colors[t]}"></span>${t}`;
-      legendEl.appendChild(leg);
-    });
-
-    function layout(){
-      const cx = 450, cy = 320, r = 250;
-      const nodes = graphData.nodes.map((n,i) => {
-        if(n.id==="ENDOS") return {...n, x:cx, y:cy};
-        const angle = (i/(graphData.nodes.length-1))*Math.PI*2 - Math.PI/2;
-        return {...n, x:cx + Math.cos(angle)*r, y:cy + Math.sin(angle)*r};
-      });
-      return nodes;
-    }
-
-    let nodes = layout();
-    let scale = 1, tx = 0, ty = 0;
-    let dragging = null;
-
-    function matches(n){
-      const q = query.toLowerCase().trim();
-      return activeTypes.has(n.type) && (!q || [n.name,n.type,n.status,n.description,n.id].join(" ").toLowerCase().includes(q));
-    }
-
-    function render(){
-      svg.innerHTML = "";
-      const g = document.createElementNS("http://www.w3.org/2000/svg","g");
-      g.setAttribute("transform",`translate(${tx},${ty}) scale(${scale})`);
-      svg.appendChild(g);
-
-      graphData.links.forEach(([a,b]) => {
-        const n1 = nodes.find(n=>n.id===a), n2 = nodes.find(n=>n.id===b);
-        const line = document.createElementNS("http://www.w3.org/2000/svg","line");
-        line.setAttribute("x1",n1.x); line.setAttribute("y1",n1.y); line.setAttribute("x2",n2.x); line.setAttribute("y2",n2.y);
-        line.setAttribute("class","edge " + ((matches(n1)&&matches(n2)) ? "" : "dim"));
-        g.appendChild(line);
-      });
-
-      nodes.forEach(n => {
-        const group = document.createElementNS("http://www.w3.org/2000/svg","g");
-        group.setAttribute("class","node " + (matches(n) ? "" : "dim"));
-        group.setAttribute("transform",`translate(${n.x},${n.y})`);
-
-        const c = document.createElementNS("http://www.w3.org/2000/svg","circle");
-        c.setAttribute("r", n.id==="ENDOS" ? 42 : 30);
-        c.setAttribute("fill", colors[n.type] || "#59a9ff");
-        c.onmousedown = e => { dragging = {node:n, sx:e.clientX, sy:e.clientY, ox:n.x, oy:n.y}; };
-        c.onclick = () => selectNode(n);
-
-        const text = document.createElementNS("http://www.w3.org/2000/svg","text");
-        text.setAttribute("y", n.id==="ENDOS" ? 60 : 47);
-        text.textContent = n.name.length > 24 ? n.name.slice(0,22)+"…" : n.name;
-
-        group.appendChild(c); group.appendChild(text); g.appendChild(group);
-      });
-    }
-
-    function selectNode(n){
-      selected = n;
-      const rel = graphData.links.filter(l => l[0]===n.id || l[1]===n.id).map(l => l[0]===n.id ? l[1] : l[0]);
-      detail.innerHTML = `
-        <h3>${n.name}</h3>
-        <p><span class="badge">${n.type}</span><span class="badge">${n.status}</span><span class="badge">${n.id}</span></p>
-        <p>${n.description}</p>
-        <h3>Connected objects</h3>
-        ${rel.map(id => {
-          const x = graphData.nodes.find(nn=>nn.id===id);
-          return `<div class="badge">${x ? x.name : id}</div>`;
-        }).join("") || "<p>Keine Beziehungen vorhanden.</p>"}
-      `;
-    }
-
-    searchEl.addEventListener("input", e => { query = e.target.value; render(); });
-    resetBtn.onclick = () => { scale=1; tx=0; ty=0; nodes=layout(); searchEl.value=""; query=""; render(); };
-
-    svg.addEventListener("wheel", e => { e.preventDefault(); const f = e.deltaY < 0 ? 1.08 : .92; scale = Math.max(.45, Math.min(2.2, scale*f)); render(); });
-    window.addEventListener("mousemove", e => {
-      if(!dragging) return;
-      dragging.node.x = dragging.ox + (e.clientX - dragging.sx)/scale;
-      dragging.node.y = dragging.oy + (e.clientY - dragging.sy)/scale;
-      render();
-    });
-    window.addEventListener("mouseup", () => dragging = null);
-
-    render();
-    selectNode(graphData.nodes[0]);
-  </script>
-</body>
-</html>
+  </main><div class="footer">ENDOS · Enterprise Navigation & Decision Operating System · Sprint 6</div>
+<script>
+const graphData={nodes:[
+{id:'ENDOS',type:'Platform',name:'ENDOS Platform',status:'active',version:'V2',desc:'Enterprise Navigation & Decision Operating System als integrierte Plattform für Navigation, Evidenz und Entscheidungsqualität.'},
+{id:'KG',type:'Engine',name:'Knowledge Graph',status:'prototype',version:'S6',desc:'Zentrales Objekt- und Beziehungsmodell für Engines, Patente, Methoden, Publikationen und Validierungsfälle.'},
+{id:'MC',type:'Engine',name:'Mission Control',status:'prototype',version:'S2',desc:'Executive Workspace zur täglichen Orientierung, Priorisierung und Steuerung.'},
+{id:'EE',type:'Engine',name:'Evidence Engine',status:'planned',version:'S7',desc:'Bewertet Evidenz, Unsicherheit, Quellenqualität und Validierungsgrad.'},
+{id:'DE',type:'Engine',name:'Decision Engine',status:'planned',version:'S8',desc:'Unterstützt Entscheidungsvorbereitung, Alternativenbewertung und Priorisierung.'},
+{id:'EAE',type:'Method',name:'Executive Attention Engineering',status:'active',version:'1.0',desc:'Lenkt Managementaufmerksamkeit auf entscheidungsrelevante Signale, Risiken, Chancen und Verzerrungen.'},
+{id:'EDDT',type:'Theory',name:'Executive Decision Distortion Theory',status:'active',version:'1.0',desc:'Theorie zur kumulierten Verzerrung entlang der Informations-, Kommunikations- und Entscheidungskette.'},
+{id:'DIS',type:'Metric',name:'Decision Integrity Score',status:'draft',version:'0.2',desc:'Indikator für Integrität und Belastbarkeit einer Entscheidungsgrundlage.'},
+{id:'PAT1',type:'Patent',name:'Enterprise Navigation Platform Patent Family',status:'draft',version:'PF-001',desc:'Patentfamilie für Plattform, Navigationslogik, dynamische Kennzahlenauswahl und Entscheidungsarchitektur.'},
+{id:'PAT2',type:'Patent',name:'Executive Attention Engineering Patent Family',status:'draft',version:'PF-002',desc:'Patentfamilie für Aufmerksamkeitssteuerung, Verzerrungsreduktion und Entscheidungsqualität.'},
+{id:'PUB1',type:'Publication',name:'Dashboard Dissertation Foundation',status:'source',version:'2019',desc:'Forschungsbasis aus DBA-Dissertation zu Management-Dashboards, KPI-Nutzung und Entscheidungsunterstützung.'},
+{id:'VAL1',type:'Validation',name:'Leoni Replay Case',status:'planned',version:'EVF-101',desc:'Historische Replay-Validierung zur Prüfung, welche Signale ENDOS frühzeitig erkannt hätte.'},
+{id:'PIL1',type:'Pilot',name:'Hospital Operations Pilot',status:'candidate',version:'PIL-HOSP',desc:'Pilotidee für dynamische Ressourcenallokation, OP-Prozessverbesserung und Wissensmanagement.'},
+{id:'METH1',type:'Method',name:'Bayesian Evidence Updating',status:'planned',version:'M-01',desc:'Methode zur laufenden Anpassung von Wahrscheinlichkeiten und Hypothesen unter Unsicherheit.'},
+{id:'METH2',type:'Method',name:'Operations Research',status:'planned',version:'M-02',desc:'Optimierungsansätze für Ressourcen, Engpässe, Kapazitäten und Zielkonflikte.'}
+],links:[
+{source:'ENDOS',target:'KG',label:'contains'},{source:'ENDOS',target:'MC',label:'contains'},{source:'ENDOS',target:'EE',label:'contains'},{source:'ENDOS',target:'DE',label:'contains'},
+{source:'KG',target:'EAE',label:'models'},{source:'KG',target:'EDDT',label:'models'},{source:'KG',target:'PAT1',label:'links'},{source:'KG',target:'PUB1',label:'links'},
+{source:'EAE',target:'PAT2',label:'protected by'},{source:'EDDT',target:'DIS',label:'operationalized by'},{source:'DE',target:'DIS',label:'uses'},{source:'EE',target:'VAL1',label:'validates'},
+{source:'MC',target:'PIL1',label:'supports'},{source:'PIL1',target:'METH2',label:'uses'},{source:'EE',target:'METH1',label:'uses'},{source:'DE',target:'METH1',label:'uses'},{source:'PUB1',target:'EAE',label:'informs'},{source:'PAT1',target:'DE',label:'protects'}]};
+const colors={Platform:'#62b5ff',Engine:'#8be9d2',Method:'#c792ea',Theory:'#ffcf66',Metric:'#ff9f7a',Patent:'#ff7b7b',Publication:'#9ad0ff',Validation:'#b8ff8b',Pilot:'#ffd166'};
+const svg=document.getElementById('graph'),details=document.getElementById('details'),filters=document.getElementById('filters'),search=document.getElementById('search'),objectList=document.getElementById('objectList'),stats=document.getElementById('stats');
+let W=0,H=0,scale=1,tx=0,ty=0,selected=null,activeTypes=new Set([...new Set(graphData.nodes.map(n=>n.type))]),query='';
+const ns='http://www.w3.org/2000/svg';
+const nodes=graphData.nodes.map((n,i)=>({...n,x:0,y:0,vx:0,vy:0})); const nodeById=Object.fromEntries(nodes.map(n=>[n.id,n])); const links=graphData.links.map(l=>({...l,source:nodeById[l.source],target:nodeById[l.target]}));
+function initPositions(){W=svg.clientWidth;H=svg.clientHeight;const cx=W/2,cy=H/2;nodes.forEach((n,i)=>{const a=(i/nodes.length)*Math.PI*2;n.x=cx+Math.cos(a)*Math.min(W,H)*.32;n.y=cy+Math.sin(a)*Math.min(W,H)*.32});nodeById.ENDOS.x=cx;nodeById.ENDOS.y=cy}
+function typeVisible(n){return activeTypes.has(n.type)&&(`${n.name} ${n.type} ${n.id} ${n.desc}`.toLowerCase().includes(query.toLowerCase()))}
+function buildFilters(){[...activeTypes].sort().forEach(t=>{const row=document.createElement('label');row.className='filter';row.innerHTML=`<span><i class="legend-dot" style="background:${colors[t]||'#ccc'}"></i>${t}</span><input type="checkbox" checked>`;row.querySelector('input').onchange=e=>{e.target.checked?activeTypes.add(t):activeTypes.delete(t);render()};filters.appendChild(row)})}
+function buildStats(){const counts={};nodes.forEach(n=>counts[n.type]=(counts[n.type]||0)+1);stats.innerHTML=`<div class="stat"><b>${nodes.length}</b><span>Knowledge Objects</span></div><div class="stat"><b>${links.length}</b><span>Beziehungen</span></div><div class="stat"><b>${Object.keys(counts).length}</b><span>Objekttypen</span></div><div class="stat"><b>S6</b><span>Current Sprint</span></div>`}
+function renderList(){objectList.innerHTML='';nodes.filter(typeVisible).forEach(n=>{const d=document.createElement('div');d.className='item';d.innerHTML=`${n.name}<br><span style="color:#8fb0ce">${n.type} · ${n.status}</span>`;d.onclick=()=>selectNode(n);objectList.appendChild(d)})}
+function simulate(){for(let k=0;k<70;k++){links.forEach(l=>{if(!typeVisible(l.source)||!typeVisible(l.target))return;const dx=l.target.x-l.source.x,dy=l.target.y-l.source.y,dist=Math.max(1,Math.hypot(dx,dy)),force=(dist-170)*.006,fx=dx/dist*force,fy=dy/dist*force;l.source.vx+=fx;l.source.vy+=fy;l.target.vx-=fx;l.target.vy-=fy});for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){const a=nodes[i],b=nodes[j];if(!typeVisible(a)||!typeVisible(b))continue;const dx=b.x-a.x,dy=b.y-a.y,dist=Math.max(20,Math.hypot(dx,dy)),rep=1900/(dist*dist),fx=dx/dist*rep,fy=dy/dist*rep;a.vx-=fx;b.vx+=fx;a.vy-=fy;b.vy+=fy}nodes.forEach(n=>{n.vx+=(W/2-n.x)*.0008;n.vy+=(H/2-n.y)*.0008;n.vx*=.86;n.vy*=.86;n.x+=n.vx;n.y+=n.vy})}}
+function render(){W=svg.clientWidth;H=svg.clientHeight;simulate();svg.innerHTML='';const g=document.createElementNS(ns,'g');g.setAttribute('transform',`translate(${tx} ${ty}) scale(${scale})`);svg.appendChild(g);links.forEach(l=>{const visible=typeVisible(l.source)&&typeVisible(l.target);const line=document.createElementNS(ns,'line');line.setAttribute('x1',l.source.x);line.setAttribute('y1',l.source.y);line.setAttribute('x2',l.target.x);line.setAttribute('y2',l.target.y);line.setAttribute('class','link'+(visible?'':' dim'));g.appendChild(line)});nodes.forEach(n=>{const visible=typeVisible(n);const gn=document.createElementNS(ns,'g');gn.setAttribute('class','node '+(visible?'':'dim')+(selected&&selected.id===n.id?' selected':''));gn.setAttribute('transform',`translate(${n.x} ${n.y})`);gn.innerHTML=`<circle r="${n.id==='ENDOS'?34:26}" fill="${colors[n.type]||'#9ad0ff'}"></circle><text y="4">${n.id}</text><title>${n.name}</title>`;gn.onmousedown=e=>startDrag(e,n);gn.onclick=e=>{e.stopPropagation();selectNode(n)};g.appendChild(gn)});renderList()}
+function selectNode(n){selected=n;const rel=links.filter(l=>l.source===n||l.target===n).map(l=>({node:l.source===n?l.target:l.source,label:l.label}));details.innerHTML=`<div class="meta-title">${n.name}</div><span class="pill"><i class="legend-dot" style="background:${colors[n.type]}"></i>${n.type}</span><span class="pill">Status: ${n.status}</span><span class="pill">Version: ${n.version}</span><p class="desc">${n.desc}</p><div class="kv"><strong>ID</strong><span>${n.id}</span><strong>Typ</strong><span>${n.type}</span><strong>Status</strong><span>${n.status}</span><strong>Version</strong><span>${n.version}</span></div><h2 style="margin:18px -16px 8px">Beziehungen</h2>${rel.length?rel.map(r=>`<div class="rel" data-id="${r.node.id}"><b>${r.node.name}</b><br><span style="color:#8fb0ce">${r.label} · ${r.node.type}</span></div>`).join(''):'<p class="empty">Keine Beziehungen.</p>'}`;details.querySelectorAll('.rel').forEach(el=>el.onclick=()=>selectNode(nodeById[el.dataset.id]));render()}
+let drag=null;function startDrag(e,n){drag={n,ox:e.clientX,oy:e.clientY};window.onmousemove=ev=>{if(!drag)return;drag.n.x+=(ev.clientX-drag.ox)/scale;drag.n.y+=(ev.clientY-drag.oy)/scale;drag.ox=ev.clientX;drag.oy=ev.clientY;render()};window.onmouseup=()=>{drag=null;window.onmousemove=null;window.onmouseup=null}}
+let pan=null;svg.addEventListener('mousedown',e=>{if(e.target===svg){pan={x:e.clientX,y:e.clientY,tx,ty}}});window.addEventListener('mousemove',e=>{if(pan){tx=pan.tx+e.clientX-pan.x;ty=pan.ty+e.clientY-pan.y;render()}});window.addEventListener('mouseup',()=>pan=null);svg.addEventListener('wheel',e=>{e.preventDefault();scale*=e.deltaY<0?1.1:.9;scale=Math.max(.45,Math.min(2.6,scale));render()},{passive:false});
+search.oninput=e=>{query=e.target.value;render()};document.getElementById('resetBtn').onclick=()=>{query='';search.value='';activeTypes=new Set(graphData.nodes.map(n=>n.type));filters.querySelectorAll('input').forEach(i=>i.checked=true);selected=null;details.innerHTML='<p class="empty">Klicke auf einen Knoten, um Metadaten, Status und Beziehungen zu sehen.</p>';render()};document.getElementById('fitBtn').onclick=()=>{tx=0;ty=0;scale=1;render()};document.getElementById('zoomIn').onclick=()=>{scale*=1.15;render()};document.getElementById('zoomOut').onclick=()=>{scale*=.85;render()};window.addEventListener('resize',()=>{W=svg.clientWidth;H=svg.clientHeight;render()});
+initPositions();buildFilters();buildStats();render();setInterval(render,1600);
+</script>
+</body></html>
