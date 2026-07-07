@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ENDOS Innovation Workspace</title>
+  <link rel="stylesheet" href="../assets/css/innovation-workspace.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">ENDOS</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="knowledge-graph.html">Knowledge Graph</a>
+      <a href="mission-control.html">Mission Control</a>
+      <a class="active" href="innovation-workspace.html">Innovation Workspace</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Sprint IP-1 · Innovation & IP Workspace</p>
+        <h1>Innovation Workspace</h1>
+        <p class="lead">Strukturiere Erfindungen als Innovationsobjekte – mit Problem, technischer Lösung, Neuheitsmerkmalen, Schutzstrategie und IP-Reifegrad.</p>
+      </div>
+      <button id="newInnovationBtn" class="primary">+ Neue Innovation</button>
+    </section>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="workspace">
+      <aside class="sidebar">
+        <label class="search-label" for="searchInput">Suche</label>
+        <input id="searchInput" type="search" placeholder="z. B. Evidence, Patent, Attention" />
+
+        <h3>Schutzstrategie</h3>
+        <div id="strategyFilters" class="chips"></div>
+
+        <h3>Kategorie</h3>
+        <div id="categoryFilters" class="chips"></div>
+      </aside>
+
+      <section class="list-panel">
+        <div class="panel-head">
+          <h2>Innovation Objects</h2>
+          <span id="resultCount"></span>
+        </div>
+        <div id="innovationList" class="innovation-list"></div>
+      </section>
+
+      <section class="detail-panel" id="detailPanel">
+        <div class="empty-state">
+          <h2>Wähle ein Innovationsobjekt</h2>
+          <p>Klicke links auf eine Innovation, um Metadaten, Neuheitsmerkmale, Schutzstrategie und nächste Schritte zu sehen.</p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="innovationDialog">
+    <form method="dialog" id="innovationForm" class="dialog-card">
+      <div class="dialog-head">
+        <h2>Neue Innovation erfassen</h2>
+        <button value="cancel" class="ghost" type="submit">Schließen</button>
+      </div>
+      <p class="hint">Diese Version speichert neue Einträge im Browser-Speicher. Später verbinden wir sie mit JSON-Dateien und dem Knowledge Graph.</p>
+      <label>Titel<input name="title" required placeholder="z. B. Patent Strategy Engine" /></label>
+      <label>Kategorie<input name="categories" placeholder="Software, KI, Verfahren" /></label>
+      <label>Problem<textarea name="problem" placeholder="Welches technische Problem wird gelöst?"></textarea></label>
+      <label>Technische Lösung<textarea name="solution" placeholder="Wie funktioniert die Lösung?"></textarea></label>
+      <label>Schutzstrategie<select name="protectionStrategy"><option>Patent</option><option>Geschäftsgeheimnis</option><option>Veröffentlichung</option><option>Open Source</option><option>Noch offen</option></select></label>
+      <button class="primary" value="default" type="submit">Innovation speichern</button>
+    </form>
+  </dialog>
+
+  <script src="../assets/js/innovation-workspace.js"></script>
+</body>
+</html>
