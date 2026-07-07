@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ENDOS Knowledge Graph</title>
+  <link rel="stylesheet" href="../assets/css/knowledge-graph.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">ENDOS</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="knowledge-graph.html" class="active">Knowledge Graph</a>
+      <a href="../docs/KNOWLEDGE_GRAPH.md">Docs</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">Sprint 5.1 · Functional Module</p>
+      <h1>Dynamic Knowledge Graph</h1>
+      <p>Explore how ENDOS connects engines, methods, patents, validation cases, publications and pilot areas into one navigable enterprise knowledge structure.</p>
+    </section>
+
+    <section class="controls">
+      <input id="search" type="search" placeholder="Search: engine, patent, validation, method..." />
+      <select id="typeFilter">
+        <option value="all">All object types</option>
+      </select>
+      <button id="resetBtn">Reset view</button>
+    </section>
+
+    <section class="workspace">
+      <div class="graph-panel">
+        <svg id="graph" viewBox="0 0 1100 650" role="img" aria-label="ENDOS interactive knowledge graph"></svg>
+      </div>
+      <aside class="details" id="details">
+        <h2>Select a node</h2>
+        <p>Click a node to see metadata and relationships.</p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../assets/js/knowledge-graph.js"></script>
+</body>
+</html>
