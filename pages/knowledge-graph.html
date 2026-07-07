@@ -1,1 +1,237 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ENDOS Knowledge Graph</title>
+  <style>
+    :root{
+      --bg:#061427;--panel:#0b223d;--panel2:#102b4b;--line:#274766;--text:#eaf4ff;
+      --muted:#a8c4df;--accent:#59a9ff;--accent2:#6ee7b7;--warn:#fbbf24;--risk:#fb7185;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at top left,#0f3159 0,#061427 42%,#03101f 100%);color:var(--text)}
+    a{color:var(--accent);text-decoration:none}
+    .wrap{max-width:1400px;margin:0 auto;padding:28px}
+    header{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:24px}
+    .brand{font-weight:800;letter-spacing:.18em;color:#7cc4ff;font-size:14px;text-transform:uppercase}
+    nav{display:flex;gap:10px;flex-wrap:wrap}
+    nav a{padding:9px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text);background:rgba(255,255,255,.03)}
+    .hero{border:1px solid var(--line);border-radius:28px;padding:28px;background:linear-gradient(135deg,rgba(16,43,75,.92),rgba(6,20,39,.86));box-shadow:0 20px 70px rgba(0,0,0,.35)}
+    h1{font-size:clamp(34px,5vw,72px);line-height:.98;margin:14px 0 14px}
+    .sub{font-size:20px;color:var(--muted);max-width:900px;line-height:1.5}
+    .grid{display:grid;grid-template-columns:300px 1fr 340px;gap:18px;margin-top:18px}
+    .panel{border:1px solid var(--line);border-radius:20px;background:rgba(8,30,55,.82);padding:18px;min-height:100px}
+    .panel h2,.panel h3{margin:0 0 12px}
+    .controls input{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#07182c;color:var(--text);margin-bottom:12px}
+    .filters{display:grid;gap:8px}
+    .filter{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:rgba(255,255,255,.03)}
+    .filter.active{border-color:var(--accent);background:rgba(89,169,255,.14)}
+    .graph{height:650px;position:relative;overflow:hidden}
+    svg{width:100%;height:100%;display:block}
+    .edge{stroke:#41698f;stroke-width:1.6;opacity:.75}
+    .node circle{stroke:#d7ecff;stroke-width:1.5;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));cursor:pointer}
+    .node text{font-size:12px;fill:#eaf4ff;pointer-events:none;text-anchor:middle;font-weight:700}
+    .node.dim,.edge.dim{opacity:.12}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+    .stat{border:1px solid var(--line);border-radius:18px;padding:16px;background:rgba(255,255,255,.04)}
+    .num{font-size:30px;font-weight:800;color:#fff}
+    .label{color:var(--muted);font-size:13px}
+    .detail{line-height:1.55;color:var(--muted)}
+    .badge{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(89,169,255,.16);border:1px solid var(--line);color:var(--text);font-size:12px;margin:4px 4px 4px 0}
+    .legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:6px}
+    .btn{border:1px solid var(--line);background:#0a2441;color:var(--text);border-radius:12px;padding:10px 12px;cursor:pointer}
+    .btn:hover{border-color:var(--accent)}
+    @media(max-width:1050px){.grid{grid-template-columns:1fr}.graph{height:560px}.stats{grid-template-columns:repeat(2,1fr)}header{display:block}nav{margin-top:14px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="brand">ENDOS V2 · Knowledge Graph</div>
+        <h1>Dynamic Knowledge Graph</h1>
+        <p class="sub">Interaktive Navigation durch Engines, Methoden, Patente, Forschung, Validierungsfälle und Pilotfelder. Dies ist das erste funktionale ENDOS-Core-Modul.</p>
+      </div>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="./mission-control.html">Mission Control</a>
+        <a href="./knowledge-graph.html">Knowledge Graph</a>
+      </nav>
+    </header>
 
+    <section class="hero">
+      <div class="stats">
+        <div class="stat"><div class="num" id="nodeCount">0</div><div class="label">Objects</div></div>
+        <div class="stat"><div class="num" id="edgeCount">0</div><div class="label">Relationships</div></div>
+        <div class="stat"><div class="num" id="typeCount">0</div><div class="label">Object Types</div></div>
+        <div class="stat"><div class="num">V1</div><div class="label">Functional Module</div></div>
+      </div>
+
+      <div class="grid">
+        <aside class="panel controls">
+          <h2>Explore</h2>
+          <input id="search" placeholder="Suche: Engine, Patent, Leoni..." />
+          <button class="btn" id="reset">Reset view</button>
+          <h3 style="margin-top:18px">Filter</h3>
+          <div class="filters" id="filters"></div>
+          <div class="legend" id="legend"></div>
+        </aside>
+
+        <main class="panel graph" id="graphPanel">
+          <svg id="graph" viewBox="0 0 900 650" aria-label="ENDOS Knowledge Graph"></svg>
+        </main>
+
+        <aside class="panel">
+          <h2>Object Detail</h2>
+          <div id="detail" class="detail">
+            Klicke auf einen Knoten im Graphen. Danach erscheinen hier Typ, Beschreibung, Status und Beziehungen.
+          </div>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const graphData = {
+      nodes: [
+        {id:"ENDOS", type:"Platform", name:"ENDOS", status:"active", description:"Enterprise Navigation & Decision Operating System."},
+        {id:"ENG-EAE", type:"Engine", name:"Executive Attention Engineering", status:"active", description:"Steuert Aufmerksamkeit vor Wahrnehmung, Interpretation und Entscheidung."},
+        {id:"ENG-EAWE", type:"Engine", name:"Executive Adaptive Workspace", status:"prototype", description:"Executive Workspace für tägliche Mission, Risiken, Chancen und Entscheidungen."},
+        {id:"ENG-EESIE", type:"Engine", name:"External Signal Intelligence", status:"concept", description:"Integriert öffentlich beobachtbare schwache Signale."},
+        {id:"METH-BAYES", type:"Method", name:"Bayesian Updating", status:"active", description:"Aktualisiert Einschätzungen unter Unsicherheit."},
+        {id:"METH-GT", type:"Method", name:"Game Theory", status:"active", description:"Modelliert Akteursinteressen, Gegenreaktionen und strategische Pfade."},
+        {id:"KO-EDDT", type:"Knowledge", name:"Executive Decision Distortion Theory", status:"active", description:"Erklärt kumulative Verzerrungen entlang der Entscheidungsverarbeitungskette."},
+        {id:"PAT-001", type:"Patent", name:"Adaptive Enterprise Navigation", status:"draft", description:"Schutzfeld für adaptive Navigation, Wissensobjekte und Entscheidungsorchestrierung."},
+        {id:"PUB-DBA", type:"Publication", name:"DBA Dashboard Research", status:"source", description:"Dissertation zur Nutzung und Funktionalität von Business Performance Dashboards."},
+        {id:"VAL-LEONI", type:"Validation", name:"Leoni Replay Case", status:"planned", description:"Historischer Replay-Test zur frühen Erkennung von Navigationssignalen."},
+        {id:"PILOT-HOSP", type:"Pilot", name:"Hospital Resource Pilot", status:"candidate", description:"Pilotfeld für dynamische Ressourcenallokation in Kliniken."},
+        {id:"ENKG", type:"Knowledge", name:"Enterprise Knowledge Graph", status:"active", description:"Vernetzt Objekte, Methoden, Engines, Patente, Forschung und Validierung."}
+      ],
+      links: [
+        ["ENDOS","ENKG"],["ENDOS","ENG-EAE"],["ENDOS","ENG-EAWE"],["ENDOS","ENG-EESIE"],
+        ["ENG-EAE","KO-EDDT"],["ENG-EAE","METH-BAYES"],["ENG-EAWE","ENKG"],["ENG-EESIE","METH-BAYES"],
+        ["KO-EDDT","PAT-001"],["PUB-DBA","KO-EDDT"],["VAL-LEONI","ENG-EESIE"],["PILOT-HOSP","ENG-EAWE"],
+        ["METH-GT","ENG-EAWE"],["METH-GT","PAT-001"],["ENKG","PAT-001"],["ENKG","VAL-LEONI"],["ENKG","PUB-DBA"]
+      ]
+    };
+
+    const colors = {
+      Platform:"#59a9ff", Engine:"#6ee7b7", Method:"#fbbf24", Knowledge:"#a78bfa",
+      Patent:"#fb7185", Publication:"#38bdf8", Validation:"#f97316", Pilot:"#34d399"
+    };
+
+    const svg = document.getElementById("graph");
+    const detail = document.getElementById("detail");
+    const filtersEl = document.getElementById("filters");
+    const legendEl = document.getElementById("legend");
+    const searchEl = document.getElementById("search");
+    const resetBtn = document.getElementById("reset");
+
+    let activeTypes = new Set([...new Set(graphData.nodes.map(n => n.type))]);
+    let query = "";
+    let selected = null;
+
+    document.getElementById("nodeCount").textContent = graphData.nodes.length;
+    document.getElementById("edgeCount").textContent = graphData.links.length;
+    document.getElementById("typeCount").textContent = activeTypes.size;
+
+    const types = [...activeTypes];
+    types.forEach(t => {
+      const div = document.createElement("div");
+      div.className = "filter active";
+      div.innerHTML = `<span><span class="dot" style="background:${colors[t]}"></span>${t}</span><span id="count-${t}">${graphData.nodes.filter(n=>n.type===t).length}</span>`;
+      div.onclick = () => { activeTypes.has(t) ? activeTypes.delete(t) : activeTypes.add(t); div.classList.toggle("active"); render(); };
+      filtersEl.appendChild(div);
+
+      const leg = document.createElement("span");
+      leg.className = "badge";
+      leg.innerHTML = `<span class="dot" style="background:${colors[t]}"></span>${t}`;
+      legendEl.appendChild(leg);
+    });
+
+    function layout(){
+      const cx = 450, cy = 320, r = 250;
+      const nodes = graphData.nodes.map((n,i) => {
+        if(n.id==="ENDOS") return {...n, x:cx, y:cy};
+        const angle = (i/(graphData.nodes.length-1))*Math.PI*2 - Math.PI/2;
+        return {...n, x:cx + Math.cos(angle)*r, y:cy + Math.sin(angle)*r};
+      });
+      return nodes;
+    }
+
+    let nodes = layout();
+    let scale = 1, tx = 0, ty = 0;
+    let dragging = null;
+
+    function matches(n){
+      const q = query.toLowerCase().trim();
+      return activeTypes.has(n.type) && (!q || [n.name,n.type,n.status,n.description,n.id].join(" ").toLowerCase().includes(q));
+    }
+
+    function render(){
+      svg.innerHTML = "";
+      const g = document.createElementNS("http://www.w3.org/2000/svg","g");
+      g.setAttribute("transform",`translate(${tx},${ty}) scale(${scale})`);
+      svg.appendChild(g);
+
+      graphData.links.forEach(([a,b]) => {
+        const n1 = nodes.find(n=>n.id===a), n2 = nodes.find(n=>n.id===b);
+        const line = document.createElementNS("http://www.w3.org/2000/svg","line");
+        line.setAttribute("x1",n1.x); line.setAttribute("y1",n1.y); line.setAttribute("x2",n2.x); line.setAttribute("y2",n2.y);
+        line.setAttribute("class","edge " + ((matches(n1)&&matches(n2)) ? "" : "dim"));
+        g.appendChild(line);
+      });
+
+      nodes.forEach(n => {
+        const group = document.createElementNS("http://www.w3.org/2000/svg","g");
+        group.setAttribute("class","node " + (matches(n) ? "" : "dim"));
+        group.setAttribute("transform",`translate(${n.x},${n.y})`);
+
+        const c = document.createElementNS("http://www.w3.org/2000/svg","circle");
+        c.setAttribute("r", n.id==="ENDOS" ? 42 : 30);
+        c.setAttribute("fill", colors[n.type] || "#59a9ff");
+        c.onmousedown = e => { dragging = {node:n, sx:e.clientX, sy:e.clientY, ox:n.x, oy:n.y}; };
+        c.onclick = () => selectNode(n);
+
+        const text = document.createElementNS("http://www.w3.org/2000/svg","text");
+        text.setAttribute("y", n.id==="ENDOS" ? 60 : 47);
+        text.textContent = n.name.length > 24 ? n.name.slice(0,22)+"…" : n.name;
+
+        group.appendChild(c); group.appendChild(text); g.appendChild(group);
+      });
+    }
+
+    function selectNode(n){
+      selected = n;
+      const rel = graphData.links.filter(l => l[0]===n.id || l[1]===n.id).map(l => l[0]===n.id ? l[1] : l[0]);
+      detail.innerHTML = `
+        <h3>${n.name}</h3>
+        <p><span class="badge">${n.type}</span><span class="badge">${n.status}</span><span class="badge">${n.id}</span></p>
+        <p>${n.description}</p>
+        <h3>Connected objects</h3>
+        ${rel.map(id => {
+          const x = graphData.nodes.find(nn=>nn.id===id);
+          return `<div class="badge">${x ? x.name : id}</div>`;
+        }).join("") || "<p>Keine Beziehungen vorhanden.</p>"}
+      `;
+    }
+
+    searchEl.addEventListener("input", e => { query = e.target.value; render(); });
+    resetBtn.onclick = () => { scale=1; tx=0; ty=0; nodes=layout(); searchEl.value=""; query=""; render(); };
+
+    svg.addEventListener("wheel", e => { e.preventDefault(); const f = e.deltaY < 0 ? 1.08 : .92; scale = Math.max(.45, Math.min(2.2, scale*f)); render(); });
+    window.addEventListener("mousemove", e => {
+      if(!dragging) return;
+      dragging.node.x = dragging.ox + (e.clientX - dragging.sx)/scale;
+      dragging.node.y = dragging.oy + (e.clientY - dragging.sy)/scale;
+      render();
+    });
+    window.addEventListener("mouseup", () => dragging = null);
+
+    render();
+    selectNode(graphData.nodes[0]);
+  </script>
+</body>
+</html>
