@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "ops": "node tools/devops/server.mjs",
+    "ops:install": "npm install express cors archiver"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
